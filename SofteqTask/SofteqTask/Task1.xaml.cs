@@ -25,24 +25,8 @@ namespace SofteqTask
 
         private void EntryValues_Completed(object sender, EventArgs e)
         {
-            int wordsCount = 0;
-            string str = entryValues.Text;
-            char[] arr = new char[str.Length];
-            for (int i = 0; i < str.Length; i++)
-            {
-                arr[i] = str[i];
-            }
-            for(int i = 1; i < arr.Length; i++)
-            {
-                if(i == arr.Length - 1 && arr[i] != ' ')
-                {
-                    wordsCount++;
-                }
-                else if(arr[i] == ' ' && arr[i - 1] != ' ')
-                {
-                    wordsCount++;
-                }
-            }
+            char[] arr = MyFunctions.ToCharArray(entryValues.Text);
+            int wordsCount = MyFunctions.WordCountInFirstLine(arr);
 
             string[] numbers = new string[wordsCount];
             string buffer = "";

@@ -3,5 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SofteqTask.Task2"
              Title="Task 2">
-    <Label Text="Task 2" VerticalOptions="Center" HorizontalOptions="Center" />
+
+    <ScrollView>
+        <StackLayout x:Name="stackLayout1">
+            <Label Text="Enter count of wheels and count of tires:" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10, 20, 10, 5"/>
+            <Editor x:Name="editorValues" Margin="10, 5, 10, 30" TextColor="Black"
+                    AutoSize="TextChanges"
+                    IsSpellCheckEnabled="false"
+                    IsTextPredictionEnabled="false"
+                    TextChanged="EditorValuesTextChanged"
+                    Completed="EditorValuesCompleted"/>
+            <Label x:Name="lb"  Text="" FontSize="Medium" TextColor="Black" Margin="10, 0"/>
+            
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
