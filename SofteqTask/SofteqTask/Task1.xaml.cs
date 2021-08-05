@@ -28,28 +28,7 @@ namespace SofteqTask
             char[] arr = MyFunctions.ToCharArray(entryValues.Text);
             int wordsCount = MyFunctions.WordCountInFirstLine(arr);
 
-            string[] numbers = new string[wordsCount];
-            string buffer = "";
-            for(int i = 0, iForNumbers = 0; i < arr.Length; i++)
-            {
-                if(i == arr.Length - 1 && arr[i] != ' ')
-                {
-                    buffer += arr[i];
-                    numbers[iForNumbers] = buffer;
-                    iForNumbers++;
-                    buffer = "";
-                }
-                else if(arr[i] != ' ')
-                {
-                    buffer += arr[i];
-                }
-                else if(i > 0 && arr[i] == ' ' && arr[i - 1] != ' ')
-                {
-                    numbers[iForNumbers] = buffer;
-                    iForNumbers++;
-                    buffer = "";
-                }
-            }
+            string[] numbers = MyFunctions.ToStringArray(arr, wordsCount);
 
             double x;
             Label lb = null;

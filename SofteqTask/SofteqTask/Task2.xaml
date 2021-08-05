@@ -6,7 +6,7 @@
 
     <ScrollView>
         <StackLayout x:Name="stackLayout1">
-            <Label Text="Enter count of wheels and count of tires:" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10, 20, 10, 5"/>
+            <Label Text="Enter count of wheels and count of tires in first line and in others lines must be one value:" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10, 20, 10, 5"/>
             <Editor x:Name="editorValues" Margin="10, 5, 10, 30" TextColor="Black"
                     AutoSize="TextChanges"
                     IsSpellCheckEnabled="false"

@@ -83,5 +83,53 @@ namespace SofteqTask
             }
             return wordsCount;
         }
+
+        public static double GetResultInThirdTask(int A, int B, int N)
+        {
+            int n1;
+            for (int i = 0; ; i++)
+            {
+                if (i * A >= N)
+                {
+                    n1 = i;
+                    break;
+                }
+            }
+
+            double result = 0;
+            for (int i = n1; i >= 0; i--)
+            {
+                for (int j = -n1; (i * A) + ((n1 - i + j) * B) <= N; j++)
+                {
+                    if ((i * A) + ((n1 - i + j) * B) == N)
+                    {
+                        if (Math.Pow(A, i) * Math.Pow(B, (n1 - i + j)) > result)
+                        {
+                            result = Math.Pow(A, i) * Math.Pow(B, (n1 - i + j));
+                        }
+                        break;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public static int GetResultInFourthTask(int whiteRotsCount, int blackRotsCount)
+        {
+            int[] arr = new int[whiteRotsCount + blackRotsCount + 1];
+            for (int i = 0; i < whiteRotsCount; i++)
+            {
+                arr[i] = 1;
+            }
+            for (int i = whiteRotsCount + blackRotsCount; i > whiteRotsCount; i--)
+            {
+                arr[i] = -1;
+            }
+
+            int motionCount = 0;
+            MyFunctionsForFourthTask.SwapSort(arr, ref motionCount);
+            return motionCount;
+        }
     }
 }

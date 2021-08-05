@@ -18,23 +18,27 @@ namespace SofteqTask
             InitializeComponent();
         }
 
-        /*protected override void OnAppearing()
-        {
-            Label lb = new Label { FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)), TextColor = Color.Black, Margin = new Thickness(10, 0) };
-            stackLayout1.Children.Add(lb);
-        }*/
-
         private void EditorValuesCompleted(object sender, EventArgs e)
         {
-            Editor editor = ((Editor)sender);
+            Editor editor = (Editor)sender;
             editor.Placeholder = "";
-            char[] arr = MyFunctions.ToCharArray(editor.Text);
+            char[] arr = null;
+            if(editor.Text != null)
+            {
+                arr = MyFunctions.ToCharArray(editor.Text);
+            }
+            else
+            {
+                return;
+            }
             int wordsCountInFirstLine = MyFunctions.WordCountInFirstLine(arr);
 
             if(wordsCountInFirstLine > 2 || wordsCountInFirstLine < 2)
             {
                 editor.Text = "";
-                editor.Placeholder = "Incorerct input. You must input 2 values in firs line";
+                editor.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
+                editor.Placeholder = "Incorerct input. You must input 2 values in first line";
+                editor.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
                 lb.Text = "";
                 return;
             }
@@ -51,6 +55,13 @@ namespace SofteqTask
                 for(int i = 2; i < numbers.Length; i++)//проверка значений колёс
                 {
                     int a = Convert.ToInt32(numbers[i]);
+                    if(a > 3000)
+                    {
+                        editor.Text = "";
+                        editor.Placeholder = $"Incorerct input. Value in {i} line is too big";
+                        lb.Text = "";
+                        return;
+                    }
                 }
             }
             catch

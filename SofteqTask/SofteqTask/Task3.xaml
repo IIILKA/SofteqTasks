@@ -3,5 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SofteqTask.Task3"
              Title="Task 3">
-    <Label Text="Task 3" VerticalOptions="Center" HorizontalOptions="Center" />
+    <StackLayout>
+        <Label Text="Enter values:" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10, 20, 10, 5"/>
+        <Entry x:Name="entryValues" Margin="10, 5, 10, 10" TextColor="Black"/>
+        <Label Text="Result:" FontSize="Large" FontAttributes="Bold" TextColor="Black" Margin="10, 10"/>
+        <Label x:Name="lb"  Text="" FontSize="Medium" TextColor="Black" Margin="10, 0"/>
+    </StackLayout>
 </ContentPage>
