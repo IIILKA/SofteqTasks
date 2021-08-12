@@ -121,19 +121,9 @@ namespace SofteqTask
 
         public static int GetResultInFourthTask(int whiteRotsCount, int blackRotsCount)
         {
-            int[] arr = new int[whiteRotsCount + blackRotsCount + 1];
-            for (int i = 0; i < whiteRotsCount; i++)
-            {
-                arr[i] = 1;
-            }
-            for (int i = whiteRotsCount + blackRotsCount; i > whiteRotsCount; i--)
-            {
-                arr[i] = -1;
-            }
-
-            int motionCount = 0;
-            MyFunctionsForFourthTask.SwapSort(arr, ref motionCount);
-            return motionCount;
+            int n1 = 3 + (2 * (blackRotsCount - 1));
+            int n2 = n1 + (blackRotsCount + 1) * (whiteRotsCount - 1);
+            return n2;
         }
     }
 }
