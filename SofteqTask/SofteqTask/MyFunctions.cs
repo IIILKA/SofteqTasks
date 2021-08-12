@@ -97,7 +97,7 @@ namespace SofteqTask
             }
 
             double result = 0;
-            for (int i = n1; i >= 0; i--)
+            for (int i = n1 - 1; i >= 0; i--)
             {
                 for (int j = -n1; (i * A) + ((n1 - i + j) * B) <= N; j++)
                 {
@@ -109,6 +109,10 @@ namespace SofteqTask
                         }
                         break;
                     }
+                }
+                if (result != 0)
+                {
+                    break;
                 }
             }
 
